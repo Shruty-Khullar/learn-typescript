@@ -324,3 +324,103 @@ Focus first on:
 10. generics
 
 These cover 80–90% of real TypeScript usage.
+
+-----------------
+
+BigINT
+Here’s a simple example of using `bigint` in TypeScript.
+
+## Basic Example
+
+```ts
+const largeNumber: bigint = 9007199254740991n;
+
+console.log(largeNumber);
+```
+
+Notice the `n` at the end — that tells TypeScript/JavaScript this is a `bigint`.
+
+---
+
+## Why use `bigint`?
+
+Normal JavaScript numbers lose precision for very large integers.
+
+Example:
+
+```ts
+console.log(Number.MAX_SAFE_INTEGER);
+// 9007199254740991
+```
+
+Anything larger may become inaccurate with `number`.
+
+`bigint` solves this.
+
+---
+
+## Arithmetic with bigint
+
+```ts
+const a: bigint = 12345678901234567890n;
+const b: bigint = 10n;
+
+console.log(a + b); // addition
+console.log(a * b); // multiplication
+console.log(a / b); // division
+```
+
+---
+
+## Important Rule
+
+You cannot mix `number` and `bigint` directly.
+
+❌ Wrong:
+
+```ts
+const x = 10n + 5;
+```
+
+✅ Correct:
+
+```ts
+const x = 10n + BigInt(5);
+```
+
+---
+
+## Using `BigInt()` constructor
+
+```ts
+const value = BigInt("123456789012345678901234567890");
+
+console.log(value);
+```
+
+---
+
+## Function Example
+
+```ts
+function factorial(n: bigint): bigint {
+  if (n === 0n) return 1n;
+  return n * factorial(n - 1n);
+}
+
+console.log(factorial(20n));
+```
+
+---
+
+## TypeScript Config Note
+
+Make sure your target supports BigInt:
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES2020"
+  }
+}
+```
