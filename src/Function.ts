@@ -22,3 +22,13 @@ const isPalindrome = (str: string): boolean => {
 }
 
 console.log(isPalindrome("aabaa"));
+
+const FindAvg = (arr: number[]) => {
+    return arr.reduce((prev, currVal) => prev+currVal)/arr.length;
+}
+console.log(FindAvg([1,2,3,4]));
+//for in - iterating over KEYS / INDEXES / PROPERTY NAMES
+const arr1 = [1,2,3,4];
+for(let itr in arr1){
+    console.log(itr);
+} 
