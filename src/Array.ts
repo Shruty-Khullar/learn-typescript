@@ -58,3 +58,5 @@ console.log(checkNum2);
 let names = ['Alex', 'Bob', 'Martin', 'Shruty', 'Stella'];
 let filteredNames = names.filter((currName)=> currName.length>4);
 console.log(filteredNames);
+filteredNames = names.filter((currName) => currName.startsWith('S'));
+console.log(filteredNames);
