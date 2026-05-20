@@ -23,7 +23,7 @@ let user2: LoginDetails = {
     password: "bcd",
     roles: Roles.user
 }
-console.log("User1: ", user1);
+console.log("User1: " , user1);
 console.log("User2: ", user2);
 
 const giveAccess = (user: LoginDetails): string => {
